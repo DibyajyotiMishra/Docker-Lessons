@@ -68,6 +68,20 @@
     docker run -v $(pwd):/app -v /app/node_modules -p 8080:8081 --name=my-dockerized-container dibyajyotimishra/dockerized-app:0.0.1.RELEASE
     ```
 
+- ***To load environment variables:*** docker run -v path-to-folder-on-host-machine:path-to-folder-on-docker-container -p port-on-host-machine:port-on-docker-container --env KEY=VALUE -d --name=name-of-container imageName
+
+    example:
+    ```console
+    docker run -v $(pwd):/app -v /app/node_modules --env PORT=8082 -p 8080:8082 --name=my-dockerized-container dibyajyotimishra/dockerized-app:0.0.1.RELEASE
+    ```
+
+- ***To load environment variables from file:*** docker run -v path-to-folder-on-host-machine:path-to-folder-on-docker-container -p port-on-host-machine:port-on-docker-container --env-file path-to-environment-variables-file -d --name=name-of-container imageName
+
+    example:
+    ```console
+    docker run -v $(pwd):/app -v /app/node_modules --env-file ./.env -p 8080:8082 --name=my-dockerized-container dibyajyotimishra/dockerized-app:0.0.1.RELEASE
+    ```
+
 - ***To delete docker containers and associated volumes:*** docker rm nameOfContainer -fv
 
     example:
