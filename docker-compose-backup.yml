@@ -1,0 +1,23 @@
+# Specify version of docker-compose
+version: "3.8"
+
+# specify various services for docker-compose
+services:
+
+#each service name
+  node-app:
+   # file location for the Dockerfile
+    build: .
+   # ports for the  application
+    ports:
+      - "8080:8080"
+   # volumes being used by the container for consistent data preservation 
+    volumes:
+      - ./:/app:ro
+      - /app/node_modules
+   # environment variables for the container
+    environment:
+      - PORT=8080
+   # environment variable filepath could also be passed in case of multiple environment variables. 
+    # env_file:
+    #   - ./.env

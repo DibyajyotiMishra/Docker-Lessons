@@ -90,4 +90,54 @@
     ```
 
 
+<br />
+<br />
+
+## Docker Compose:
+
+#### Docker Compose file
+- Line 1: Specify version of docker-compose
+- Line 2: Under `services` put the name of each service that `docker-compose` is going to manage.
+- Line 3: Specify the name of each service.
+- Line 4: Specify the path of Dockerfile under the `build` command.
+- Line 5: Specify the list of ports to be exposed under `ports` section.
+- Line 6: Specify the list of environment variables for your application under `environment` section.
+- Line 7: Specify the filepath of `.env` if any under `env-file` section.
+- Line 8: Add volumes under the `volumes` section.
+- Line 9: overwrite buildtime command using the `command` option.
+
+  **Sample docker-compose.yml file:**
+
+  ```console:
+  version: '3.8'
+  services:
+    node-docker-app:
+        build: .
+        ports:
+            - "8080:8080"
+        environment:
+            - PORT=8080
+        volumes:
+            - ./:/app:ro
+            - /app/node_modules
+  ```
+
+  #### Important Docker Compose Commands.
+
+  - ***To build and run using docker-compose:*** 
+    ```console
+    docker-compose up -d --build
+    ```
+    `--build` : to rebuild from start everytime.
+
+  - ***To kill running container and associated volumes:***
+    ```console
+    docker-compose down -v
+    ```
+
+  - ***To run from multiple docker-compose configs:*** docker-compose up -f docker-compose-file1.yml -f docker-compose-file2.yml -f docker-compose-file3.yml ... -d --build
+  
+    ```console
+    docker-compose up -f docker-compose.yml -f docker-compose.dev.yml -d --build
+    ```
 
