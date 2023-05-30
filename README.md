@@ -26,10 +26,11 @@
 #### Important Docker Commands.
 - ***To build an image:*** docker build -t imageName:semantic-versioning.RELEASE path-to-dockerfile
 
-    <u>example:</u>
-        ```console
+    example:
+    ```console
         docker build -t dibyajyotimishra/dockerized-app:0.0.1.RELEASE .
-        ```
+     ```
+     
     <br />
 
 - ***To delete an image:*** 
