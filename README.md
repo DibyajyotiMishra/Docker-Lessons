@@ -28,7 +28,7 @@
 
     example:
     ```console
-        docker build -t dibyajyotimishra/dockerized-app:0.0.1.RELEASE .
+    docker build -t dibyajyotimishra/dockerized-app:0.0.1.RELEASE .
      ```
      
     <br />
