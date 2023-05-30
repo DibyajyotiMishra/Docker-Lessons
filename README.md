@@ -1,5 +1,28 @@
 # DOCKER LESSONS
 
+#### Dockerfile
+
+- Line 1: base image 
+- Line 2: specify working directory
+- Line 3: COPY package.json to working directory.
+- Line 4: Build time commands.
+- Line 5: Copy rest of the files to working directory
+-  Line 6: Expose Port numbers
+-  Line 7: Run time commands.
+   <br/>
+
+    **Sample Dockerfile**:
+
+    ```console
+    FROM node:16
+    WORKDIR /app
+    COPY package.json .
+    RUN npm install
+    COPY . ./
+    EXPOSE 8080
+    CMD ["node", "index.js"]
+    ```
+
 #### Important Docker Commands.
 - ***To build an image:*** docker build -t imageName:semantic-versioning.RELEASE path-to-dockerfile
 
