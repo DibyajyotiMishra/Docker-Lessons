@@ -141,3 +141,53 @@
     docker-compose up -f docker-compose.yml -f docker-compose.dev.yml -d --build
     ```
 
+#### Deploy to production using Docker on Ubuntu VM on am EC2 instance:
+
+  - ***Step 1: Setup an instance:*** Head over to console.aws.amazon.com and create an EC2 instance with Ubuntu OS and download the pem key.
+  - ***Obtain Permissions to access the pem key:*** Launch the terminal and hit the following command:
+
+    ```console
+    chmod 0400 key-name.pem
+    ```
+
+  - ***SSH into the instance***: Copy the public IP of the instance and ssh into the instance using the following command.
+
+    ```console
+    ssh -i key-name.pem ubuntu@publicip
+    ```
+
+   - ***Install docker in the instance***: Copy the following command to get the docker installer script.
+
+    ```console
+    curl -fsSL https://get.docker.com -o install-docker.sh
+    ```
+
+    Now run the script to install docker on your instance.
+
+    ```console
+    sudo sh install-docker.sh
+    ```
+
+    Verify installation by running the command ```docker -v```.
+
+   - ***Now install Docker Compose:***  
+
+    download and install docker-compose:
+
+    ```console
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    ```
+
+    obtain permissions:
+    
+    ```console
+    sudo chmod +x /usr/local/bin/docker-compose
+    ```
+
+    verify installation:
+    
+    ```console
+    docker-compose -v
+    ```
+    
+

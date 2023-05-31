@@ -6,3 +6,5 @@ Dockerfile
 .gitignore
 docker-compose*
 docker-compose.*
+*.pem
+.DS_Store
