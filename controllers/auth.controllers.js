@@ -9,11 +9,10 @@ exports.signUp = async (req, res) => {
       username,
       password: hashedPassword,
     });
+    req.session.user = user;
     return res.status(201).json({
       status: "success",
-      data: {
-        user,
-      },
+      "session-id": req.session.id,
     });
   } catch (error) {
     return res.status(400).json({
@@ -40,8 +39,10 @@ exports.signIn = async (req, res) => {
         error: "Password doesnot match.",
       });
     } else {
+      req.session.user = user;
       return res.status(201).json({
         status: "success",
+        "session-id": req.session.id,
       });
     }
   } catch (error) {
