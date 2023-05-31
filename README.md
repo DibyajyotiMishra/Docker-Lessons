@@ -190,4 +190,11 @@
     docker-compose -v
     ```
     
+    - ***Setup environment variables for your application:*** Create a ```.env``` file to hold the environment variables.  
+
+    ```console
+    sudo vi .env
+    ```
+
+    Hit `i` to get into insert mode and put all your environment variables and hit `esc` to exit insert mode and finally hit `:wq` to save the changes.
 
