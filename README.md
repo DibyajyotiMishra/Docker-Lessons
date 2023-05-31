@@ -198,3 +198,11 @@
 
     Hit `i` to get into insert mode and put all your environment variables and hit `esc` to exit insert mode and finally hit `:wq` to save the changes.
 
+    To load the environment variables, open the `.bashrc` or the `.bash_profile` and add the followingg commands:
+
+    ```console
+    set -o allexport; source path-to-env-file; set +o allexport;
+    ```
+
+    Now all the environment variables will be loaded up.
+
