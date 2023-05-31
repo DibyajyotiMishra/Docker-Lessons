@@ -13,8 +13,8 @@ const {
   REDIS_PORT,
   SESSION_SECRET,
 } = require("./configs/config");
-const postRouter = require("./routes/post.routes");
-const authRouter = require("./routes/auth.routes");
+const postRouter = require("./routes/post.route");
+const authRouter = require("./routes/auth.route");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -71,7 +71,7 @@ app.use(
     cookie: {
       secure: false,
       httpOnly: true,
-      maxAge: 600000,
+      maxAge: 60000,
     },
   })
 );

@@ -9,7 +9,7 @@ exports.signUp = async (req, res) => {
       username,
       password: hashedPassword,
     });
-    req.session.user = user;
+    user && (req.session.user = user);
     return res.status(201).json({
       status: "success",
       "session-id": req.session.id,
