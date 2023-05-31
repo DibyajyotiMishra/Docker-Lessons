@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const redis = require("redis");
 const session = require("express-session");
 const RedisStore = require("connect-redis").default;
@@ -82,8 +83,11 @@ app.use(
     extended: true,
   })
 );
+app.use(cors());
 
-app.get("/", (req, res) => {
+app.enable("trust-proxy");
+
+app.get("/api/v1/", (req, res) => {
   res.send("<h2>Hi 👋, from Express API within Docker.! </h2>");
 });
 
