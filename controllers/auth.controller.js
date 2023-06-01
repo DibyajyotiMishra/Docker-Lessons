@@ -13,6 +13,7 @@ exports.signUp = async (req, res) => {
     return res.status(201).json({
       status: "success",
       "session-id": req.session.id,
+      user: req.session.user,
     });
   } catch (error) {
     return res.status(400).json({
@@ -43,6 +44,7 @@ exports.signIn = async (req, res) => {
       return res.status(201).json({
         status: "success",
         "session-id": req.session.id,
+        user: req.session.user,
       });
     }
   } catch (error) {
