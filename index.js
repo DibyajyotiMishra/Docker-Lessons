@@ -88,7 +88,7 @@ app.use(cors());
 app.enable("trust-proxy");
 
 app.get("/api/v1/", (req, res) => {
-  res.send("<h2>Hi 👋, from Express API within Docker.! </h2>");
+  res.send("<h2>Hi 👋, from Express API within Docker in Production.! </h2>");
 });
 
 app.use("/api/v1/posts", postRouter);
