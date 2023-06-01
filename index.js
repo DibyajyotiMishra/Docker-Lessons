@@ -88,8 +88,9 @@ app.use(cors());
 app.enable("trust-proxy");
 
 app.get("/api/v1/", (req, res) => {
+  console.log("To check if the builds are getting updated");
   res.send(
-    "<h2>Hi 👋, from Express API within Docker in Production...!!! </h2>"
+    "<h2>Hi 👋, from Express API within Docker in Production server...!!! </h2>"
   );
 });
 
