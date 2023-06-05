@@ -9,7 +9,6 @@ services:
     depends_on:
       - node-docker-app
   node-docker-app:
-    build: .
     image: dibyajyotimishra/node-docker-app
     environment:
       - PORT=8080
